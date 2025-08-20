@@ -1,3 +1,4 @@
+
 import { useState } from 'react'
 import './App.css'
 
@@ -13,23 +14,25 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white shadow-lg z-50">
+      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-lg z-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-blue-600">TopFreshers</h1>
+              <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                TopFreshers
+              </div>
             </div>
             
             {/* Desktop Navigation */}
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Home</button>
-                <button onClick={() => scrollToSection('features')} className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Features</button>
-                <button onClick={() => scrollToSection('programs')} className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Programs</button>
-                <button onClick={() => scrollToSection('success')} className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Success Stories</button>
-                <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Contact</button>
+              <div className="ml-10 flex items-baseline space-x-8">
+                <button onClick={() => scrollToSection('home')} className="text-slate-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105">Home</button>
+                <button onClick={() => scrollToSection('features')} className="text-slate-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105">Features</button>
+                <button onClick={() => scrollToSection('programs')} className="text-slate-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105">Programs</button>
+                <button onClick={() => scrollToSection('success')} className="text-slate-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105">Success Stories</button>
+                <button onClick={() => scrollToSection('contact')} className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:shadow-lg transition-all duration-300 hover:scale-105">Contact</button>
               </div>
             </div>
 
@@ -37,7 +40,7 @@ function App() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-blue-600 p-2"
+                className="text-slate-700 hover:text-blue-600 p-2"
               >
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -49,12 +52,12 @@ function App() {
           {/* Mobile Navigation */}
           {isMenuOpen && (
             <div className="md:hidden">
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
-                <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left">Home</button>
-                <button onClick={() => scrollToSection('features')} className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left">Features</button>
-                <button onClick={() => scrollToSection('programs')} className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left">Programs</button>
-                <button onClick={() => scrollToSection('success')} className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left">Success Stories</button>
-                <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left">Contact</button>
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white rounded-lg shadow-lg mt-2">
+                <button onClick={() => scrollToSection('home')} className="text-slate-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left hover:bg-slate-50">Home</button>
+                <button onClick={() => scrollToSection('features')} className="text-slate-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left hover:bg-slate-50">Features</button>
+                <button onClick={() => scrollToSection('programs')} className="text-slate-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left hover:bg-slate-50">Programs</button>
+                <button onClick={() => scrollToSection('success')} className="text-slate-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left hover:bg-slate-50">Success Stories</button>
+                <button onClick={() => scrollToSection('contact')} className="bg-gradient-to-r from-blue-600 to-purple-600 text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Contact</button>
               </div>
             </div>
           )}
@@ -62,317 +65,364 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-16 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section id="home" className="pt-20 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Master Technical Interviews<br />Become Work Ready
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+              Master Technical
+              <span className="block bg-gradient-to-r from-yellow-400 to-pink-400 bg-clip-text text-transparent">Interviews</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-              Join thousands of freshers who cracked their dream jobs with our intensive technical training programs
+            <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto animate-slide-up">
+              Join TopFreshers and transform your career with our cutting-edge training programs. 
+              From DSA to system design, we've got you covered.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => scrollToSection('programs')} className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition duration-300">
-                Explore Programs
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
+              <button onClick={() => scrollToSection('programs')} className="bg-gradient-to-r from-yellow-400 to-pink-400 text-slate-900 px-8 py-4 rounded-full text-lg font-bold hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                Start Learning Now
               </button>
-              <button onClick={() => scrollToSection('contact')} className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition duration-300">
-                Get Started Free
+              <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-slate-900 transition-all duration-300">
+                Watch Demo
               </button>
             </div>
           </div>
         </div>
+        
+        {/* Floating elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-yellow-400/20 rounded-full animate-bounce-slow"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-pink-400/20 rounded-full animate-bounce-slow" style={{animationDelay: '1s'}}></div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 bg-gray-50">
+      <section id="features" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose TopFreshers?</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We provide comprehensive training that bridges the gap between academic knowledge and industry requirements
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Why <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Choose Us?</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              We provide everything you need to succeed in technical interviews and land your dream job
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
+            {[
+              { icon: "🎯", title: "Personalized Learning", desc: "Customized learning paths based on your goals and current skill level", color: "from-blue-500 to-cyan-500" },
+              { icon: "👨‍💻", title: "Expert Mentors", desc: "Learn from ex-FAANG engineers with 10+ years of industry experience", color: "from-purple-500 to-pink-500" },
+              { icon: "📊", title: "Real Projects", desc: "Work on industry-level projects that showcase your skills to employers", color: "from-green-500 to-emerald-500" },
+              { icon: "🎪", title: "Mock Interviews", desc: "Practice with real interview questions from top tech companies", color: "from-orange-500 to-red-500" },
+              { icon: "💼", title: "Job Placement", desc: "Dedicated placement support with 95% success rate in top companies", color: "from-indigo-500 to-purple-500" },
+              { icon: "🌟", title: "24/7 Support", desc: "Round-the-clock assistance from mentors and peer community", color: "from-pink-500 to-rose-500" }
+            ].map((feature, index) => (
+              <div key={index} className="group relative">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                <div className="relative bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                  <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-xl flex items-center justify-center text-2xl mb-4`}>
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
+                  <p className="text-slate-600">{feature.desc}</p>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Real-World Projects</h3>
-              <p className="text-gray-600">Work on industry-standard projects that mirror actual workplace challenges</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Interview Preparation</h3>
-              <p className="text-gray-600">Master DSA, system design, and behavioral interviews with expert guidance</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Expert Mentors</h3>
-              <p className="text-gray-600">Learn from industry professionals with 10+ years of experience</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Programs Section */}
-      <section id="programs" className="py-20 bg-white">
+      <section id="programs" className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Training Programs</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Choose from our specialized programs designed to make you job-ready
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Choose Your <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Path</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Select from our industry-leading programs designed for maximum impact
             </p>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition duration-300">
-              <div className="bg-blue-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-2xl font-bold text-blue-600">SDE</span>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Software Development */}
+            <div className="group relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
+              <div className="relative bg-white p-8 rounded-2xl shadow-xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center text-white text-2xl mb-6">
+                  💻
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Software Development</h3>
+                <p className="text-slate-600 mb-6">Master full-stack development with cutting-edge technologies</p>
+                <ul className="space-y-3 mb-8">
+                  {['Data Structures & Algorithms', 'System Design & Architecture', 'Full-Stack Development', 'Cloud & DevOps', 'Interview Mastery'].map((item, i) => (
+                    <li key={i} className="flex items-center text-slate-700">
+                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex justify-between items-center">
+                  <span className="text-3xl font-bold text-slate-900">₹25,000</span>
+                  <button className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                    Enroll Now
+                  </button>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Software Development</h3>
-              <p className="text-gray-600 mb-4">Full-stack development with React, Node.js, and cloud technologies</p>
-              <ul className="text-sm text-gray-600 space-y-1 mb-4">
-                <li>• Data Structures & Algorithms</li>
-                <li>• System Design</li>
-                <li>• Full-stack Projects</li>
-                <li>• Mock Interviews</li>
-              </ul>
-              <div className="text-2xl font-bold text-blue-600 mb-4">₹15,999</div>
-              <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
-                Enroll Now
-              </button>
             </div>
 
-            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition duration-300">
-              <div className="bg-purple-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-2xl font-bold text-purple-600">DS</span>
+            {/* Data Science */}
+            <div className="group relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
+              <div className="relative bg-white p-8 rounded-2xl shadow-xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center text-white text-2xl mb-6">
+                  📊
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Data Science</h3>
+                <p className="text-slate-600 mb-6">Become a data scientist with ML and analytics expertise</p>
+                <ul className="space-y-3 mb-8">
+                  {['Python & R Programming', 'Machine Learning & AI', 'Data Analysis & Visualization', 'SQL & Big Data', 'Statistics & Probability'].map((item, i) => (
+                    <li key={i} className="flex items-center text-slate-700">
+                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex justify-between items-center">
+                  <span className="text-3xl font-bold text-slate-900">₹30,000</span>
+                  <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                    Enroll Now
+                  </button>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Data Science</h3>
-              <p className="text-gray-600 mb-4">Machine learning, data analysis, and AI with Python</p>
-              <ul className="text-sm text-gray-600 space-y-1 mb-4">
-                <li>• Python & Statistics</li>
-                <li>• Machine Learning</li>
-                <li>• Deep Learning</li>
-                <li>• Real-world Projects</li>
-              </ul>
-              <div className="text-2xl font-bold text-purple-600 mb-4">₹18,999</div>
-              <button className="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition duration-300">
-                Enroll Now
-              </button>
             </div>
 
-            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition duration-300">
-              <div className="bg-green-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-2xl font-bold text-green-600">QA</span>
+            {/* QA Engineering */}
+            <div className="group relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
+              <div className="relative bg-white p-8 rounded-2xl shadow-xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl flex items-center justify-center text-white text-2xl mb-6">
+                  🧪
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">QA Engineering</h3>
+                <p className="text-slate-600 mb-6">Master quality assurance with automation testing</p>
+                <ul className="space-y-3 mb-8">
+                  {['Manual & Automation Testing', 'Selenium & Cypress', 'API & Performance Testing', 'CI/CD & DevOps', 'Test Strategy & Planning'].map((item, i) => (
+                    <li key={i} className="flex items-center text-slate-700">
+                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex justify-between items-center">
+                  <span className="text-3xl font-bold text-slate-900">₹20,000</span>
+                  <button className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                    Enroll Now
+                  </button>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">QA Engineering</h3>
-              <p className="text-gray-600 mb-4">Manual and automation testing with industry tools</p>
-              <ul className="text-sm text-gray-600 space-y-1 mb-4">
-                <li>• Manual Testing</li>
-                <li>• Selenium & Cypress</li>
-                <li>• API Testing</li>
-                <li>• CI/CD Testing</li>
-              </ul>
-              <div className="text-2xl font-bold text-green-600 mb-4">₹12,999</div>
-              <button className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300">
-                Enroll Now
-              </button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Success Stories */}
-      <section id="success" className="py-20 bg-gray-50">
+      <section id="success" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Success Stories</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Hear from our students who landed their dream jobs
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Success <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Stories</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Join 1000+ students who transformed their careers with TopFreshers
             </p>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-lg">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-blue-600 font-semibold">PR</span>
-                </div>
-                <div className="ml-3">
-                  <h4 className="font-semibold">Priya R</h4>
-                  <p className="text-sm text-gray-600">SDE at Amazon</p>
-                </div>
-              </div>
-              <p className="text-gray-600 italic">
-                "TopFreshers transformed my career. The DSA course and mock interviews prepared me perfectly for Amazon's rigorous process."
-              </p>
-              <div className="mt-4 text-yellow-500">★★★★★</div>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-lg">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                  <span className="text-purple-600 font-semibold">RK</span>
-                </div>
-                <div className="ml-3">
-                  <h4 className="font-semibold">Rahul K</h4>
-                  <p className="text-sm text-gray-600">Data Scientist at Microsoft</p>
-                </div>
-              </div>
-              <p className="text-gray-600 italic">
-                "The hands-on projects and mentorship helped me transition from a non-tech background to a data science role."
-              </p>
-              <div className="mt-4 text-yellow-500">★★★★★</div>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-lg">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <span className="text-green-600 font-semibold">AS</span>
-                </div>
-                <div className="ml-3">
-                  <h4 className="font-semibold">Anita S</h4>
-                  <p className="text-sm text-gray-600">QA Engineer at Google</p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { name: "Ankit Sharma", role: "Software Engineer", company: "Google", salary: "₹45 LPA", image: "👨‍💻", story: "TopFreshers helped me crack Google! The structured approach and mock interviews were game-changing." },
+              { name: "Priya Patel", role: "Data Scientist", company: "Microsoft", salary: "₹38 LPA", image: "👩‍🔬", story: "The data science program was exceptional. I went from zero to hero in just 6 months!" },
+              { name: "Rahul Kumar", role: "QA Engineer", company: "Amazon", salary: "₹28 LPA", image: "👨‍🔧", story: "The QA program gave me practical skills that directly translated to my role at Amazon." },
+              { name: "Sneha Reddy", role: "Full-Stack Developer", company: "Meta", salary: "₹42 LPA", image: "👩‍💻", story: "The full-stack curriculum is industry-relevant. I felt confident in every interview round." },
+              { name: "Vikram Singh", role: "ML Engineer", company: "Netflix", salary: "₹50 LPA", image: "🤖", story: "The ML specialization was intense but worth it. Landed my dream job at Netflix!" },
+              { name: "Neha Gupta", role: "SDET", company: "Apple", salary: "₹35 LPA", image: "🧪", story: "From manual tester to SDET at Apple - TopFreshers made it possible!" }
+            ].map((story, index) => (
+              <div key={index} className="group">
+                <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                  <div className="flex items-center mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-2xl text-white mr-4">
+                      {story.image}
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-slate-900">{story.name}</h4>
+                      <p className="text-slate-600">{story.role}</p>
+                    </div>
+                  </div>
+                  <div className="mb-4">
+                    <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                      {story.company}
+                    </span>
+                    <span className="inline-block bg-gradient-to-r from-green-600 to-emerald-600 text-white px-3 py-1 rounded-full text-sm font-semibold ml-2">
+                      {story.salary}
+                    </span>
+                  </div>
+                  <p className="text-slate-700 italic">"{story.story}"</p>
                 </div>
               </div>
-              <p className="text-gray-600 italic">
-                "The QA program gave me practical skills that directly applied to my role. Got placed within 2 months!"
-              </p>
-              <div className="mt-4 text-yellow-500">★★★★★</div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            {[
+              { number: "1000+", label: "Students Placed" },
+              { number: "95%", label: "Placement Rate" },
+              { number: "₹35 LPA", label: "Average CTC" },
+              { number: "50+", label: "Hiring Partners" }
+            ].map((stat, index) => (
+              <div key={index}>
+                <div className="text-4xl md:text-5xl font-bold mb-2">{stat.number}</div>
+                <div className="text-blue-100">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white">
+      <section id="contact" className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get Started Today</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Ready to transform your career? Get in touch with our experts
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Ready to <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Transform</span> Your Career?
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Join thousands of successful students who started their journey with us
             </p>
           </div>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <svg className="w-6 h-6 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <span className="text-gray-700">+91 98765 43210</span>
-                </div>
-                <div className="flex items-center">
-                  <svg className="w-6 h-6 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <span className="text-gray-700">hello@topfreshers.com</span>
-                </div>
-                <div className="flex items-center">
-                  <svg className="w-6 h-6 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <span className="text-gray-700">Bangalore, India</span>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Get In Touch</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white mr-4">
+                      📧
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900">Email</div>
+                      <div className="text-slate-600">hello@topfreshers.com</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white mr-4">
+                      📱
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900">Phone</div>
+                      <div className="text-slate-600">+91 98765 43210</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white mr-4">
+                      📍
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900">Location</div>
+                      <div className="text-slate-600">Bangalore, India</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div>
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                  <input type="text" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Name" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                  <input type="email" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="your@email.com" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                  <input type="tel" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="+91 9876543210" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Program Interest</label>
-                  <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option>Select a program</option>
-                    <option>Software Development</option>
-                    <option>Data Science</option>
-                    <option>QA Engineering</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                  <textarea className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="4" placeholder="Tell us about your goals..."></textarea>
-                </div>
-                <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300">
-                  Send Message
-                </button>
-              </form>
+              
+              <div>
+                <form className="space-y-6">
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Full Name</label>
+                    <input type="text" className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300" placeholder="Enter your name" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
+                    <input type="email" className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300" placeholder="Enter your email" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Phone Number</label>
+                    <input type="tel" className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300" placeholder="Enter your phone" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Interested Program</label>
+                    <select className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300">
+                      <option>Select a program</option>
+                      <option>Software Development</option>
+                      <option>Data Science</option>
+                      <option>QA Engineering</option>
+                    </select>
+                  </div>
+                  <button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
+                    Get Free Consultation
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="bg-slate-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">TopFreshers</h3>
-              <p className="text-gray-400">
-                Empowering freshers with technical skills to crack interviews and excel in their careers.
+              <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
+                TopFreshers
+              </div>
+              <p className="text-slate-400 mb-4">
+                Empowering freshers to crack technical interviews and build successful careers in top tech companies.
               </p>
+              <div className="flex space-x-4">
+                <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <span className="text-white">f</span>
+                </a>
+                <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <span className="text-white">in</span>
+                </a>
+                <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <span className="text-white">t</span>
+                </a>
+              </div>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Programs</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><button onClick={() => scrollToSection('programs')} className="hover:text-white">Software Development</button></li>
-                <li><button onClick={() => scrollToSection('programs')} className="hover:text-white">Data Science</button></li>
-                <li><button onClick={() => scrollToSection('programs')} className="hover:text-white">QA Engineering</button></li>
+              <ul className="space-y-2 text-slate-400">
+                <li><a href="#" className="hover:text-white transition-colors">Software Development</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Data Science</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">QA Engineering</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Interview Prep</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Support</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">Help Center</a></li>
-                <li><a href="#" className="hover:text-white">Student Portal</a></li>
-                <li><a href="#" className="hover:text-white">Career Guidance</a></li>
+              <ul className="space-y-2 text-slate-400">
+                <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Career Guidance</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Connect</h4>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                </a>
-              </div>
+              <h4 className="font-semibold mb-4">Company</h4>
+              <ul className="space-y-2 text-slate-400">
+                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 TopFreshers. All rights reserved.</p>
+          <div className="mt-12 pt-8 border-t border-slate-800 text-center text-slate-400">
+            <p>&copy; 2025 TopFreshers. All rights reserved. Built with ❤️ for freshers</p>
           </div>
         </div>
       </footer>
